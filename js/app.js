@@ -9,3 +9,8 @@ function cambiarTexto(){
     // parrafo.textContent = 'Mundial 2026 ⚽'
      parrafo.innerHTML = '<strong class="color-parrafo">Mundial</strong> 2026 ⚽'
 }
+
+const ocultarParrafo = ()=>{
+    const parrafoOculto =  document.getElementById('parrafo-oculto')
+    parrafoOculto.classList.add('d-none')
+}
