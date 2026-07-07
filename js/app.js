@@ -31,11 +31,27 @@ const eliminarParrafo = ()=>{
     //eliminar un elemento del html
     parrafo.remove()
     botonEliminar.classList.add('disabled')
+}
 
+const crearTarea = (e)=>{
+    e.preventDefault()
+    //tomar el texto del input
+    const inputTarea = document.querySelector('#tarea').value
+    const ul = document.querySelector('#listaTareas');
+    //crear el li
+    const li = document.createElement('li'); //<li> </li>
+    //estilizar el li
+    li.textContent = inputTarea;//<li>hola </li>
+    li.classList.add('list-group-item') //<li class='list-group-item'>hola </li>
+    ul.appendChild(li)
+    formularioTarea.reset()
 }
 
 const botonEliminar = document.querySelector('#btnEliminar')
+const formularioTarea = document.querySelector('#formTarea')
+
 
 botonEliminar.addEventListener('click', eliminarParrafo )
+formularioTarea.addEventListener('submit', crearTarea)
 // como llamar a una funcion si tiene uno o mas parametros
 // botonEliminar.addEventListener('click', ()=> eliminarParrafo('hola mundo') )
