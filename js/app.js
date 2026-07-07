@@ -25,3 +25,17 @@ const ocultarParrafo = ()=>{
         botonOcultar[3].classList.replace('btn-success','btn-danger')
     }
 }
+
+const eliminarParrafo = ()=>{
+    const parrafo = document.getElementById('parrafo-eliminar')
+    //eliminar un elemento del html
+    parrafo.remove()
+    botonEliminar.classList.add('disabled')
+
+}
+
+const botonEliminar = document.querySelector('#btnEliminar')
+
+botonEliminar.addEventListener('click', eliminarParrafo )
+// como llamar a una funcion si tiene uno o mas parametros
+// botonEliminar.addEventListener('click', ()=> eliminarParrafo('hola mundo') )
