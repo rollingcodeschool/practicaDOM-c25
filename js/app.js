@@ -69,14 +69,18 @@ const botonEliminar = document.querySelector("#btnEliminar");
 const formularioTarea = document.querySelector("#formTarea");
 const btnMostrarAlert = document.querySelector("#btnMostrarAlert");
 const reloj = document.querySelector("#reloj");
+const btnDetenerReloj = document.querySelector("#btnDetenerReloj");
 
 botonEliminar.addEventListener("click", eliminarParrafo);
 formularioTarea.addEventListener("submit", crearTarea);
 btnMostrarAlert.addEventListener("click", mostrarAlert);
+btnDetenerReloj.addEventListener('click', ()=>{
+    clearInterval(idInterval)
+})
 // como llamar a una funcion si tiene uno o mas parametros
 // botonEliminar.addEventListener('click', ()=> eliminarParrafo('hola mundo') )
 
-setInterval(() => {
+const idInterval= setInterval(() => {
   const hora = new Date();
   const formato = Intl.DateTimeFormat("es-AR", {
     hour: "2-digit",
@@ -87,6 +91,7 @@ setInterval(() => {
   reloj.textContent= formato.format(hora)
 }, 1000);
 
+console.log(idInterval)
 console.log(new Date().getHours());
 console.log(new Date().getMinutes());
 console.log(new Date().getSeconds());
