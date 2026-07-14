@@ -36,14 +36,25 @@ const eliminarParrafo = ()=>{
 const crearTarea = (e)=>{
     e.preventDefault()
     //tomar el texto del input
+    //? opcion 1
     const inputTarea = document.querySelector('#tarea').value
     const ul = document.querySelector('#listaTareas');
+    const regExp = /^[a-zA-Z0-9ñÑ ]+$/
+    console.log(regExp.test(inputTarea))
+    //!false
+    if(!regExp.test(inputTarea)){
+        return alert('valor invalido')
+    }
     //crear el li
-    const li = document.createElement('li'); //<li> </li>
+    // const li = document.createElement('li'); //<li> </li>
     //estilizar el li
-    li.textContent = inputTarea;//<li>hola </li>
-    li.classList.add('list-group-item') //<li class='list-group-item'>hola </li>
-    ul.appendChild(li)
+    // li.textContent = inputTarea;//<li>hola </li>
+    // li.classList.add('list-group-item') //<li class='list-group-item'>hola </li>
+    // ul.appendChild(li)
+
+    //?opcion 2
+    ul.innerHTML += `<li class='list-group-item'>${inputTarea}</li>`
+
     formularioTarea.reset()
 }
 
